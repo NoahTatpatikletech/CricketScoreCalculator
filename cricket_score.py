@@ -20,6 +20,13 @@ def required_rate(target, current_runs, remaining_overs):
   return round(needed / remaining_overs, 2)
 
 
+def match_status(target, current_runs):
+  if current_runs >= target:
+    return "Target Achieved"
+  else:
+    return "Chasing Target"
+
+
 if __name__ == "__main__":
   runs = int(sys.argv[1])
   overs = float(sys.argv[2])
@@ -32,3 +39,4 @@ if __name__ == "__main__":
   print("Current Run Rate :", run_rate(runs, overs))
   print("Strike Rate      :", strike_rate(batter_runs, balls))
   print("Required Run Rate:", required_rate(target, runs, rem_overs))
+  print("Match Status     :", match_status(target, runs))
